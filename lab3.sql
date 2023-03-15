@@ -187,3 +187,18 @@ FROM
         GROUP BY
             M.EMPLOYEE_ID
     );
+
+
+
+-- ACTIVITAT 7
+SELECT
+    TO_CHAR(HIRE_DATE,
+    'DAY')   AS DAY_OF_WEEK,
+    COUNT(*)
+FROM
+    EMPLOYEES
+HAVING
+    COUNT(*) > 2
+GROUP BY
+    TO_CHAR(HIRE_DATE,
+    'DAY');
