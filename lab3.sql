@@ -163,3 +163,27 @@ FROM
     ORG_CHART
     LEFT JOIN EMPLOYEES M ON ORG_CHART.MANAGER_ID = M.EMPLOYEE_ID
 ORDER BY ORG_CHART.EMPLOYEE_ID, ORG_CHART.MANAGER_ID ASC;
+
+
+
+-- ACTIVITAT 6
+-- Nombre de empleats
+SELECT
+    count(*)
+FROM
+    EMPLOYEES;
+
+-- Nombre de managers
+SELECT
+    COUNT(*)
+FROM
+    (
+        SELECT
+            M.EMPLOYEE_ID
+        FROM
+            EMPLOYEES E
+            JOIN EMPLOYEES M
+            ON E.MANAGER_ID = M.EMPLOYEE_ID
+        GROUP BY
+            M.EMPLOYEE_ID
+    );
